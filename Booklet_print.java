@@ -3,7 +3,7 @@ import java.lang.*;
 import java.io.*;
 import java.math.*;
 
-class Booklet
+class Main
 {
 	public static void main (String[] args)
 	{
