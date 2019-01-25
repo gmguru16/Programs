@@ -17,7 +17,7 @@ class Main {
 				if (c=='[') 
 				    pointer=0;
 				else if (c==']')
-                    pointer=al.size();
+                    		    pointer=al.size();
 				else 
 				    al.add(pointer++,c);
 			}
