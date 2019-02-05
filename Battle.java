@@ -7,7 +7,7 @@ class Main
 	{
 	    Scanner in=new Scanner(System.in);
 	    int t=in.nextInt();
-	    while(t-->0)
+	    for(int j=0;j<t;j++)
 	    {
 	        int a[]=new int[3];
 	        List<Integer> green=new ArrayList<>();
@@ -54,11 +54,22 @@ class Main
                     blue.remove(0);
                 }
             }
-            
-            System.out.println(green);
-            System.out.println(blue);
-            
-            
+            if(blue.size()==0 && green.size()==0)
+            	System.out.println("green and blue died");
+	    else if(green.size()!=0 && blue.size()==0)
+	    {
+		    System.out.println("green wins");
+		    for(int i=0;i<green.size();i++)
+		`   	System.out.println(green.get(i));
+	    }
+            else if(green.size()==0 && blue.size()!=0)
+	    {
+		    System.out.println("blue wins");
+		    for(int i=0;i<blue.size();i++)
+		`   	System.out.println(blue.get(i));
+	    }
+            if(j+1<t)
+		System.out.println();
 	    }
 	}
 }
