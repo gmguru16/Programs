@@ -60,13 +60,13 @@ class Main
 	    {
 		    System.out.println("green wins");
 		    for(int i=0;i<green.size();i++)
-		`   	System.out.println(green.get(i));
+		   	System.out.println(green.get(i));
 	    }
             else if(green.size()==0 && blue.size()!=0)
 	    {
 		    System.out.println("blue wins");
 		    for(int i=0;i<blue.size();i++)
-		`   	System.out.println(blue.get(i));
+		   	System.out.println(blue.get(i));
 	    }
             if(j+1<t)
 		System.out.println();
