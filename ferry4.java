@@ -16,38 +16,63 @@ class Main
             Queue<String> side = new LinkedList<>();	       
             for(int i=0;i<m;i++)
                 side.add(in.next());
-            int left=0,right=0;
-	        while(m-->0)
-            {
-	           
-                String s1=side.peek();
-                
-                //System.out.println("-----");
-	            if(s1.substring(s1.length()-4,s1.length())=="left") 
+            int left=0,right=0,h=0,g=0;
+	        while(true)
+            { 
+                if(side.size()==0)
+                    break;
+	            
+                String s1=side.poll(),s2="00000";
+                if(side.size()!=0)
+                    s2=side.peek();
+	            if(s1.substring(s1.length()-4,s1.length()).equals("left")) 
 	            {
 	                right=0;
-                    while(s1.substring(s1.length()-4,s1.length())=="left" && 
-                            left+Integer.parseInt(s1.substring(0,s1.length()-5))<l)
+	                g=0;
+                    while(s1.substring(s1.length()-4,s1.length()).equals("left") && 
+                            left+Integer.parseInt(s1.substring(0,s1.length()-5))<=l  && g==0)
     	            {
-    	                left+=Integer.parseInt(s1.substring(0,s1.length()-5));
-	                    side.remove();
-	                    break;
+    	                g++;
+    	                h++;
+	                    left+=Integer.parseInt(s1.substring(0,s1.length()-5));
+    	                
     	            }
-	                tra++;
-	               
+    	            if(s2.substring(s2.length()-5,s2.length()).equals("right")||s2.equals("00000"))
+    	            {
+    	                tra++;
+    	                left=0;
+    	            }
+    	            else if((s2.substring(s2.length()-4,s2.length()).equals("left")&&
+    	             !(left+Integer.parseInt(s2.substring(0,s2.length()-5))<=l)))
+    	             {
+    	                 tra+=2;
+    	                 left=0;
+    	             }
+    	                
                 }
-	            else 
+	            else //if(s1.substring(s1.length()-5,s1.length()).equals("right"))
 	            {
 	                left=0;
-	                while(s1.substring(s1.length()-5,s1.length())=="right" &&
-	                        right+Integer.parseInt(s1.substring(0,s1.length()-6))<l)
+	                h=0; 
+	                while( s1.substring(s1.length()-5,s1.length()).equals("right") &&
+	                        right+Integer.parseInt(s1.substring(0,s1.length()-6))<=l && h==0)
     	            {
+    	                h++;
+    	                g++;
     	                right+=Integer.parseInt(s1.substring(0,s1.length()-6));
-	                    side.remove();
-	                    break;
     	            }
-	                tra++;
-	                
+    	            if(s2.substring(s2.length()-4,s2.length()).equals("left")||s2.equals("00000"))
+    	            {
+    	                tra++;
+    	                right=0;
+    	            }
+    	            else if((s2.substring(s2.length()-5,s2.length()).equals("right")&&
+    	             !(right+Integer.parseInt(s2.substring(0,s2.length()-6))<=l)))
+    	             {
+    	                 tra+=2;
+    	                 right=0;
+    	                 
+    	             }
 	           }
             }
 	   		System.out.println(tra);
