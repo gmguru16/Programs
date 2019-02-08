@@ -4,23 +4,32 @@ import java.util.*;
 
 class Main 
 {
-	public static void main (String[] args) 
+	public static void main (String[] args) throws IOException
 	{
-	    Scanner in=new Scanner(System.in);
-	    int t=in.nextInt();
+	    BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+	    String s=in.readLine();
+	    int t=Integer.parseInt(s);
 	    for(int j=0;j<t;j++)
 	    {
 	        int a[]=new int[3];
-	        List<Integer> green=new ArrayList<>(a[1]);
-	        List<Integer> blue=new ArrayList<>(a[2]);
 			PriorityQueue<Integer> greenq=new PriorityQueue<>(Collections.reverseOrder()); 
 			PriorityQueue<Integer> blueq=new PriorityQueue<>(Collections.reverseOrder());
-	        for(int i=0;i<3;i++)
-	            a[i]=in.nextInt();
+            String str=in.readLine();
+            String str1[]=(str.split(" "));
+            for(int v=0;v<str1.length;v++)
+                a[v]=Integer.parseInt(str1[v]);
+            List<Integer> green=new ArrayList<>(a[1]);
+	        List<Integer> blue=new ArrayList<>(a[2]);
             for(int i=0;i<a[1];i++)
-                green.add(in.nextInt());
+            {
+                String str2=in.readLine();
+                green.add(Integer.parseInt(str2));
+            }
             for(int i=0;i<a[2];i++)
-                blue.add(in.nextInt());
+            {
+                String str2=in.readLine();
+                blue.add(Integer.parseInt(str2));
+            }
             Collections.sort(green,Collections.reverseOrder());
             Collections.sort(blue,Collections.reverseOrder());
             while(green.size()!=0 && blue.size()!=0)
