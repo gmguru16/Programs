@@ -32,5 +32,6 @@ class Main
 
 
 
-Question Explanation: https://www.redgreencode.com/equation-solving-is-the-key-to-uva-11236/  (Optimization 3)
+Question Explanation: https://www.redgreencode.com/equation-solving-is-the-key-to-uva-11236/  
+			(Optimization 3)
 
